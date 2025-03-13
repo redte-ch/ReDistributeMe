@@ -149,10 +149,54 @@
    }
    ```
 
-    Then format and commit:
+   Then format and commit:
 
-    ```sh
-    npx prettier --write .
-    git add -p
-    git commit -m "chore: add TypeScript configuration"
-    ```
+   ```sh
+   npx prettier --write .
+   git add -p
+   git commit -m "chore: add TypeScript configuration"
+   ```
+
+9. Add `cypress` for testing:
+
+   ```sh
+   npm install -D cypress
+   ```
+
+   Create a `cypress.config.js` file:
+
+   ```typescript
+   import { defineConfig } from 'cypress'
+
+   export default defineConfig({
+     e2e: {
+       baseUrl: 'http://localhost:4321',
+       supportFile: false
+     }
+   })
+   ```
+
+   Create a `calculate-income-tax.cy.ts`:
+
+   ```typescript
+   it('Calculate income tax', () => {
+     const page = cy.visit('/')
+     page.get('title').should('have.text', 'RedistributeMe')
+     page.get('pre').should('have.text', '1234')
+   })
+   ```
+
+   Run the tests:
+
+   ```sh
+   npx cypress run
+   ```
+
+   Modify `Welcome.astro` to make the test pass, format, and commit:
+
+   ```sh
+   npx prettier --write .
+   git add -p
+   git add .
+   git commit -m "test: add calculate income tax test"
+   ```
