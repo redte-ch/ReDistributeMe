@@ -53,7 +53,7 @@ Then open [localhost:4321](http://localhost:4321/) in your browser.
 - [ ] Adapt core to changes in `openfisca-country-template`
 - [x] Bootstrap this repository with a vanilla Astro app
 - [x] Add licence
-- [ ] Add contributing guidelines
+- [x] Add contributing guidelines
 - [ ] Implement the calculation of income tax
 
 ## Licence
@@ -62,7 +62,7 @@ Distributed under the EUPL-1.2 licence. See [LICENSE](LICENSE) for more informat
 
 ## Contributing
 
-TODO
+See [CONTRIBUTING.md](CONTRIBUTING.md) for more information.
 
 ### Top contributors
 

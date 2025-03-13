@@ -32,7 +32,15 @@
    git commit -m "chore: add EUPL-1.2 licence"
    ```
 
-5. Add `.editorconfig`:
+5. Add a contributing guidelines:
+
+   ```sh
+   curl --output CONTRIBUTING.md "curl --output CONTRIBUTING.md "https://raw.githubusercontent.com/openfisca/country-template/refs/heads/main/CONTRIBUTING.md""
+   git add CONTRIBUTING.md
+   git commit -m "chore: add contributing guidelines"
+   ```
+
+6. Add `.editorconfig`:
 
    ```sh
    curl --output .editorconfig "https://raw.githubusercontent.com/redte-ch/maisonquiroga.art/refs/heads/main/.editorconfig"
