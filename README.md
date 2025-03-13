@@ -4,12 +4,12 @@ ReDistributeMe is a RaC-powered webapp built with TypeScript and the OpenFisca
 API to show how taxes and social benefits have an impact on households'
 disposable income (or their net income including benefits).
 
-Disposable income is a crucial tool for rule-makers to assess fairness and equity. 
-Its distribution among households varies based on their composition and income 
-levels. Yet, the complexity of tax and benefit systems makes it challenging to 
+Disposable income is a crucial tool for rule-makers to assess fairness and equity.
+Its distribution among households varies based on their composition and income
+levels. Yet, the complexity of tax and benefit systems makes it challenging to
 quickly evaluate constituents’ disposable income. ReDistributeMe aims to help you
-to have a preliminary illustration of disposable income variance, to show how, 
-based on different household compositions and income levels, it has a 
+to have a preliminary illustration of disposable income variance, to show how,
+based on different household compositions and income levels, it has a
 redistributive impact influenced by both taxes and social benefits.
 
 ## Built With
@@ -54,7 +54,7 @@ Then open [localhost:4321](http://localhost:4321/) in your browser.
 - [x] Bootstrap this repository with a vanilla Astro app
 - [x] Add licence
 - [ ] Add contributing guidelines
-- [ ] TODO
+- [ ] Implement the calculation of income tax
 
 ## Licence
 
