@@ -14,34 +14,51 @@ redistributive impact influenced by both taxes and social benefits.
 
 ## Built With
 
-- TODO
+- [Astro](https://astro.build/)
 
 ## Getting Started
 
-TODO
-
 ### Prerequisites
 
-TODO
+- [Node.js](https://nodejs.org/)
 
 ### Installation
 
-TODO
+To get a local copy of this project, run in a console:
+
+```sh
+git clone git@github.com:redte-ch/ReDistributeMe.git
+cd ReDistributeMe
+```
+
+Then install the dependencies:
+
+```sh
+npm install
+```
 
 ## Usage
 
-TODO
+Run:
+
+```sh
+npm run dev
+```
+
+Then open [localhost:4321](http://localhost:4321/) in your browser.
 
 ## Roadmap
 
 - [x] Fix `disposable_income` formula in `openfisca-country-template`
-- [ ] Bootstrap this repository with a vanilla TypeScript + Astro + Svelte app
-- [ ] Change licence to EUPL-1.2
+- [ ] Adapt core to changes in `openfisca-country-template`
+- [x] Bootstrap this repository with a vanilla Astro app
+- [x] Add licence
+- [ ] Add contributing guidelines
 - [ ] TODO
 
 ## Licence
 
-Distributed under the TODO licence. See [LICENSE](LICENSE) for more information.
+Distributed under the EUPL-1.2 licence. See [LICENSE](LICENSE) for more information.
 
 ## Contributing
 
