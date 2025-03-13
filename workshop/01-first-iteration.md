@@ -53,7 +53,7 @@
    ```sh
    npx astro add svelte
    npx astro add tailwindcss
-   npm install prettier prettier-plugin-astro prettier-plugin-jsdoc prettier-plugin-pkg prettier-plugin-sh prettier-plugin-svelte prettier-plugin-tailwindcss
+   npm install -D prettier prettier-plugin-astro prettier-plugin-jsdoc prettier-plugin-pkg prettier-plugin-sh prettier-plugin-svelte prettier-plugin-tailwindcss
    ```
 
    Then add the following to `Layout.astro`:
@@ -115,3 +115,44 @@
    git add .
    git commit -m "chore: add Svelte, Tailwind, and Prettier"
    ```
+
+8. Add the following to `tsconfig.json`:
+
+   ```json
+   {
+     "compilerOptions": {
+       "allowJs": true,
+       "allowImportingTsExtensions": true,
+       "allowSyntheticDefaultImports": true,
+       "baseUrl": ".",
+       "checkJs": true,
+       "declaration": true,
+       "emitDeclarationOnly": true,
+       "esModuleInterop": true,
+       "forceConsistentCasingInFileNames": true,
+       "isolatedModules": true,
+       "module": "nodenext",
+       "moduleResolution": "nodenext",
+       "noEmit": true,
+       "paths": { "@/*": ["src/*"] },
+       "resolveJsonModule": true,
+       "skipLibCheck": true,
+       "sourceMap": true,
+       "strict": true,
+       "strictNullChecks": true,
+       "stripInternal": true,
+       "target": "es6"
+     },
+     "extends": "astro/tsconfigs/strict",
+     "include": [".astro/types.d.ts", "**/*"],
+     "exclude": ["dist"]
+   }
+   ```
+
+    Then format and commit:
+
+    ```sh
+    npx prettier --write .
+    git add -p
+    git commit -m "chore: add TypeScript configuration"
+    ```
