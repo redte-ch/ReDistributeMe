@@ -51,6 +51,14 @@ npm run dev
 
 Then open [localhost:4321](http://localhost:4321/) in your browser.
 
+## Testing
+
+Run:
+
+```sh
+npm run test
+```
+
 ## Roadmap
 
 - [x] Fix `disposable_income` formula in `openfisca-country-template`
