@@ -47,3 +47,71 @@
    git add .editorconfig
    git commit -m "chore: add .editorconfig"
    ```
+
+7. Add Svelte, Tailwind, and Prettier:
+
+   ```sh
+   npx astro add svelte
+   npx astro add tailwindcss
+   npm install prettier prettier-plugin-astro prettier-plugin-jsdoc prettier-plugin-pkg prettier-plugin-sh prettier-plugin-svelte prettier-plugin-tailwindcss
+   ```
+
+   Then add the following to `Layout.astro`:
+
+   ```astro
+   ---
+   import './src/styles/global.css'
+   ---
+   ```
+
+   Add the following to `prettier.config.mjs`:
+
+   ```mjs
+   /** @type {import('prettier').Config} */
+   export default {
+     // StandardJS
+     arrowParens: 'always',
+     bracketSameLine: false,
+     bracketSpacing: true,
+     embeddedLanguageFormatting: 'auto',
+     endOfLine: 'lf',
+     htmlWhitespaceSensitivity: 'css',
+     insertPragma: false,
+     jsxSingleQuote: true,
+     printWidth: 80,
+     proseWrap: 'preserve',
+     quoteProps: 'as-needed',
+     requirePragma: false,
+     semi: false,
+     singleAttributePerLine: false,
+     singleQuote: true,
+     tabWidth: 2,
+     trailingComma: 'none',
+     useTabs: false,
+     vueIndentScriptAndStyle: false,
+     // Astro
+     plugins: [
+       'prettier-plugin-astro',
+       'prettier-plugin-jsdoc',
+       'prettier-plugin-pkg',
+       'prettier-plugin-sh',
+       'prettier-plugin-svelte',
+       'prettier-plugin-tailwindcss'
+     ]
+   }
+   ```
+
+   Add the following to `.prettierignore`:
+
+   ```sh
+   node_modules/**
+   ```
+
+   Then format and commit:
+
+   ```sh
+   npx prettier --write .
+   git add -p
+   git add .
+   git commit -m "chore: add Svelte, Tailwind, and Prettier"
+   ```
