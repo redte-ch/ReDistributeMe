@@ -1,0 +1,13 @@
+{
+  "persons": {
+    "Thomas": {
+      "salary": {
+        "2025-03": 4000
+      },
+      "income_tax": {
+        "2025-03": null
+      }
+    }
+  }
+}export class calculateIncomeTax{
+}
