@@ -1,202 +1,184 @@
 # First Iteration
 
-1. Create a new project
+### Create a new project
 
-   ```sh
-   npm create astro@latest
-   cd redistribute-me
-   npm install
-   ```
+```sh
+npm create astro@latest
+cd redistribute-me
+npm install
+```
 
-2. Run:
+### Run
 
-   ```sh
-   npm run dev
-   ```
+```sh
+npm run dev
+```
 
-   Then open [localhost:4321](http://localhost:4321/) in your browser.
+Then open [localhost:4321](http://localhost:4321/) in your browser.
 
-3. Create a new git repository and commit your project
+### Create a new git repository and commit your project
 
-   ```sh
-   git init
-   git add .
-   git commit -m "chore: initial commit"
-   ```
+```sh
+git init
+git add .
+git commit -m "chore: initial commit"
+```
 
-4. Add a licence:
+### Add a licence
 
-   ```sh
-   curl --output LICENSE "https://interoperable-europe.ec.europa.eu/sites/default/files/custom-page/attachment/2020-03/EUPL-1.2%20EN.txt"
-   git add LICENSE
-   git commit -m "chore: add EUPL-1.2 licence"
-   ```
+```sh
+curl --output LICENSE "https://interoperable-europe.ec.europa.eu/sites/default/files/custom-page/attachment/2020-03/EUPL-1.2%20EN.txt"
+git add LICENSE
+git commit -m "chore: add EUPL-1.2 licence"
+```
 
-5. Add a contributing guidelines:
+### Add a contributing guidelines
 
-   ```sh
-   curl --output CONTRIBUTING.md "curl --output CONTRIBUTING.md "https://raw.githubusercontent.com/openfisca/country-template/refs/heads/main/CONTRIBUTING.md""
-   git add CONTRIBUTING.md
-   git commit -m "chore: add contributing guidelines"
-   ```
+```sh
+curl --output CONTRIBUTING.md "curl --output CONTRIBUTING.md "https://raw.githubusercontent.com/openfisca/country-template/refs/heads/main/CONTRIBUTING.md""
+git add CONTRIBUTING.md
+git commit -m "chore: add contributing guidelines"
+```
 
-6. Add `.editorconfig`:
+### Add `.editorconfig`
 
-   ```sh
-   curl --output .editorconfig "https://raw.githubusercontent.com/redte-ch/maisonquiroga.art/refs/heads/main/.editorconfig"
-   git add .editorconfig
-   git commit -m "chore: add .editorconfig"
-   ```
+```sh
+curl --output .editorconfig "https://raw.githubusercontent.com/redte-ch/maisonquiroga.art/refs/heads/main/.editorconfig"
+git add .editorconfig
+git commit -m "chore: add .editorconfig"
+```
 
-7. Add Svelte, Tailwind, and Prettier:
+### Add `tsconfig.json`
 
-   ```sh
-   npx astro add svelte
-   npx astro add tailwindcss
-   npm install -D prettier prettier-plugin-astro prettier-plugin-jsdoc prettier-plugin-pkg prettier-plugin-sh prettier-plugin-svelte prettier-plugin-tailwindcss
-   ```
+```sh
+curl --output tsconfig.json "https://raw.githubusercontent.com/redte-ch/ReDistributeMe/refs/heads/main/tsconfig.json"
+git add tsconfig.json
+git commit -m "chore: add TypeScript configuration"
+```
 
-   Then add the following to `Layout.astro`:
+### Add Svelte, Tailwind, and Prettier
 
-   ```astro
-   ---
-   import './src/styles/global.css'
-   ---
-   ```
+```sh
+npx astro add svelte
+npx astro add tailwindcss
+npm install -D prettier
+npm install -D prettier-plugin-astro prettier-plugin-svelte prettier-plugin-tailwindcss
+npm install -D prettier-plugin-jsdoc prettier-plugin-pkg prettier-plugin-sh
+curl --output prettier.config.mjs "https://raw.githubusercontent.com/redte-ch/ReDistributeMe/refs/heads/main/prettier.config.mjs"
+curl --output .prettierignore "https://raw.githubusercontent.com/redte-ch/ReDistributeMe/refs/heads/main/.prettierignore"
+```
 
-   Add the following to `prettier.config.mjs`:
+Add the following to `Layout.astro`:
 
-   ```mjs
-   /** @type {import('prettier').Config} */
-   export default {
-     // StandardJS
-     arrowParens: 'always',
-     bracketSameLine: false,
-     bracketSpacing: true,
-     embeddedLanguageFormatting: 'auto',
-     endOfLine: 'lf',
-     htmlWhitespaceSensitivity: 'css',
-     insertPragma: false,
-     jsxSingleQuote: true,
-     printWidth: 80,
-     proseWrap: 'preserve',
-     quoteProps: 'as-needed',
-     requirePragma: false,
-     semi: false,
-     singleAttributePerLine: false,
-     singleQuote: true,
-     tabWidth: 2,
-     trailingComma: 'none',
-     useTabs: false,
-     vueIndentScriptAndStyle: false,
-     // Astro
-     plugins: [
-       'prettier-plugin-astro',
-       'prettier-plugin-jsdoc',
-       'prettier-plugin-pkg',
-       'prettier-plugin-sh',
-       'prettier-plugin-svelte',
-       'prettier-plugin-tailwindcss'
-     ]
-   }
-   ```
+```astro
+---
+import './src/styles/global.css'
+---
+```
 
-   Add the following to `.prettierignore`:
+Then format and commit:
 
-   ```sh
-   node_modules/**
-   ```
+```sh
+npx prettier --write .
+git add -p
+git add .
+git commit -m "chore: add Svelte, Tailwind, and Prettier"
+```
 
-   Then format and commit:
+### Add `cypress` for testing:
 
-   ```sh
-   npx prettier --write .
-   git add -p
-   git add .
-   git commit -m "chore: add Svelte, Tailwind, and Prettier"
-   ```
+```sh
+npm install -D cypress
+```
 
-8. Add the following to `tsconfig.json`:
+Create a `cypress.config.js` file:
 
-   ```json
-   {
-     "compilerOptions": {
-       "allowJs": true,
-       "allowImportingTsExtensions": true,
-       "allowSyntheticDefaultImports": true,
-       "baseUrl": ".",
-       "checkJs": true,
-       "declaration": true,
-       "emitDeclarationOnly": true,
-       "esModuleInterop": true,
-       "forceConsistentCasingInFileNames": true,
-       "isolatedModules": true,
-       "module": "nodenext",
-       "moduleResolution": "nodenext",
-       "noEmit": true,
-       "paths": { "@/*": ["src/*"] },
-       "resolveJsonModule": true,
-       "skipLibCheck": true,
-       "sourceMap": true,
-       "strict": true,
-       "strictNullChecks": true,
-       "stripInternal": true,
-       "target": "es6"
-     },
-     "extends": "astro/tsconfigs/strict",
-     "include": [".astro/types.d.ts", "**/*"],
-     "exclude": ["dist"]
-   }
-   ```
+```typescript
+import { defineConfig } from 'cypress'
 
-   Then format and commit:
+export default defineConfig({
+  e2e: {
+    baseUrl: 'http://localhost:4321',
+    supportFile: false
+  }
+})
+```
 
-   ```sh
-   npx prettier --write .
-   git add -p
-   git commit -m "chore: add TypeScript configuration"
-   ```
+Create a `calculate-income-tax.cy.ts`:
 
-9. Add `cypress` for testing:
+```typescript
+it('Calculate income tax', () => {
+  const page = cy.visit('/')
+  page.get('h1').should('have.text', 'RedistributeMe')
+  page.get('span').should('have.text', '1234')
+})
+```
 
-   ```sh
-   npm install -D cypress
-   ```
+Run the tests:
 
-   Create a `cypress.config.js` file:
+```sh
+npx cypress run
+```
 
-   ```typescript
-   import { defineConfig } from 'cypress'
+Format and commit:
 
-   export default defineConfig({
-     e2e: {
-       baseUrl: 'http://localhost:4321',
-       supportFile: false
-     }
-   })
-   ```
+```sh
+npx prettier --write .
+git add -p
+git add .
+git commit -m "test: add calculate income tax test"
+```
 
-   Create a `calculate-income-tax.cy.ts`:
+### Add `CalculateIncomeTax.svelte`
 
-   ```typescript
-   it('Calculate income tax', () => {
-     const page = cy.visit('/')
-     page.get('title').should('have.text', 'RedistributeMe')
-     page.get('pre').should('have.text', '1234')
-   })
-   ```
+Take a look at these links to copy some styles:
 
-   Run the tests:
+- https://jetthoughts.com/blog/vertical-align-with-full-screen-across-tailwind-css-jetthoughts/
+- https://tailwindcss.com/plus/ui-blocks/application-ui/layout/cards#component-4beba7dd94a1e5d6fd88a6d46236b4b7
+- https://tailwindcss.com/plus/ui-blocks/application-ui/headings/card-headings#component-c3692309ba3a2cd4c439031e104ad97a
 
-   ```sh
-   npx cypress run
-   ```
+Then add the following to `CalculateIncomeTax.svelte`:
 
-   Modify `Welcome.astro` to make the test pass, format, and commit:
+```svelte
+<main class="flex h-screen items-center justify-center">
+  <section
+    class="divide-y divide-gray-200 overflow-hidden rounded-lg bg-white shadow-sm"
+  >
+    <h1 class="px-4 py-5 font-semibold text-gray-900 sm:px-6">
+      RedistributeMe
+    </h1>
+    <p class="px-4 py-5 sm:p-6">Income tax: <span>1234</span></p>
+  </section>
+</main>
+```
 
-   ```sh
-   npx prettier --write .
-   git add -p
-   git add .
-   git commit -m "test: add calculate income tax test"
-   ```
+Format and commit:
+
+```sh
+npx prettier --write .
+git add -p
+git add .
+git commit -m "feat: add calculate income tax component"
+```
+
+### Add `CalculateIncomeTax.svelte` to `index.astro`
+
+```astro
+---
+import CalculateIncomeTaxSvelte from '@/components/CalculateIncomeTax.svelte'
+import Layout from '@/layouts/Layout.astro'
+---
+
+<Layout>
+  <CalculateIncomeTaxSvelte />
+</Layout>
+```
+
+Make test pass, format, and commit:
+
+```sh
+npx prettier --write .
+npx cypress run
+git add -p
+git commit -m "test: make calculate income tax test pass"
+```

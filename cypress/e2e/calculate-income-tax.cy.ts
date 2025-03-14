@@ -1,5 +1,5 @@
 it('Calculate income tax', () => {
   const page = cy.visit('/')
-  page.get('title').should('have.text', 'RedistributeMe')
-  page.get('pre').should('have.text', '1234')
+  page.get('h1').should('have.text', 'RedistributeMe')
+  page.get('span').should('have.text', '1234')
 })
