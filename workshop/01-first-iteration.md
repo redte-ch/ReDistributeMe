@@ -272,7 +272,17 @@ Modify `CalculateIncomeTax.svelte`:
 </main>
 ```
 
-Fix the test, format, and commit:
+Fix the test:
+
+```typescript
+it('Calculate income tax', () => {
+  const page = cy.visit('/')
+  page.get('h1').should('have.text', 'RedistributeMe')
+  page.get('span').should('have.text', '600')
+})
+```
+
+Format and commit:
 
 ```sh
 npx prettier --write .
