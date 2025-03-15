@@ -183,9 +183,7 @@ git add -p
 git commit -m "test: make calculate income tax test pass"
 ```
 
-### Call the OpenFisca API to calculate income tax
-
-Modify `index.astro`:
+### Add client-side rendering to `index.astro
 
 ```astro
 ---
@@ -198,7 +196,7 @@ import Layout from '@/layouts/Layout.astro'
 </Layout>
 ```
 
-Add `calculateIncomeTax.json`:
+### Add `calculateIncomeTax.json`
 
 ```json
 {
@@ -215,18 +213,30 @@ Add `calculateIncomeTax.json`:
 }
 ```
 
-Add `CalculateResult.ts`:
+### Add `Situation.ts`
 
 ```typescript
-export type CalculateResult = {
+export type Situation = {
   persons: {
     [key: string]: {
-      income_tax: {
+      [key: string]: {
         [key: string]: number
       }
     }
   }
 }
+```
+
+### Calculate income tax with the OpenFisca API
+
+Fix the test:
+
+```typescript
+it('Calculate income tax', () => {
+  const page = cy.visit('/')
+  page.get('h1').should('have.text', 'RedistributeMe')
+  page.get('span').should('have.text', '600')
+})
 ```
 
 Modify `CalculateIncomeTax.svelte`:
@@ -235,7 +245,7 @@ Modify `CalculateIncomeTax.svelte`:
 <script lang="ts">
   import { onMount } from 'svelte'
   import situation from '@/situations/calculateIncomeTax.json'
-  import type { CalculateResult } from '@/models/CalculateResult'
+  import type { Situation } from '@/models/Situation.ts'
 
   export let data: number
   const payload: string = JSON.stringify(situation)
@@ -250,7 +260,7 @@ Modify `CalculateIncomeTax.svelte`:
       }
     )
 
-    const result: CalculateResult = await response.json()
+    const result: Situation = await response.json()
     data = result.persons.Thomas.income_tax['2025-03']
   })
 </script>
@@ -270,16 +280,6 @@ Modify `CalculateIncomeTax.svelte`:
     </p>
   </section>
 </main>
-```
-
-Fix the test:
-
-```typescript
-it('Calculate income tax', () => {
-  const page = cy.visit('/')
-  page.get('h1').should('have.text', 'RedistributeMe')
-  page.get('span').should('have.text', '600')
-})
 ```
 
 Format and commit:

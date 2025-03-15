@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte'
   import situation from '@/situations/calculateIncomeTax.json'
-  import type { CalculateResult } from '@/models/CalculateResult'
+  import type { Situation } from '@/models/Situation.ts'
 
   export let data: number
   const payload: string = JSON.stringify(situation)
@@ -16,7 +16,7 @@
       }
     )
 
-    const result: CalculateResult = await response.json()
+    const result: Situation = await response.json()
     data = result.persons.Thomas.income_tax['2025-03']
   })
 </script>

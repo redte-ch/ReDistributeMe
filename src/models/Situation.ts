@@ -1,7 +1,7 @@
-export type CalculateResult = {
+export type Situation = {
   persons: {
     [key: string]: {
-      income_tax: {
+      [key: string]: {
         [key: string]: number
       }
     }

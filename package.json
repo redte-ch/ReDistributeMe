@@ -11,12 +11,14 @@
   "scripts": {
     "astro": "astro",
     "build": "astro build",
+    "check": "astro check",
     "dev": "astro dev",
     "format": "prettier . --write",
     "preview": "astro preview",
     "test": "cypress run"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.4",
     "@astrojs/svelte": "^7.0.6",
     "@tailwindcss/vite": "^4.0.13",
     "astro": "^5.4.3",
