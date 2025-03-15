@@ -137,9 +137,56 @@ export default function () {
 }
 ```
 
+Format and commit:
+
 ```sh
 npx prettier --write .
 git add -p
 git add .
 git commit -m "feat: add calculate disposable income component"
+```
+
+### Fix types
+
+Modify `Situation.ts`:
+
+```typescript
+type Person = string
+type Household = string
+type Role = string
+type Variable = string
+type Date = string
+type Value = number | null
+
+export type Situation = {
+  persons: {
+    [key: Person]: {
+      [key: Variable]: {
+        [key: Date]: Value
+      }
+    }
+  }
+  households: {
+    [key: Household]: {
+      [key: Role | Variable]: Person[] | { [key: Date]: Value }
+    }
+  }
+}
+```
+
+Modify `CalculateIncomeTax.svelte`:
+
+```diff
+-  export let data: number
++  export let data: number | null = null
+```
+
+Format, check types, test, and commit:
+
+```sh
+npx prettier --write .
+npx astro check
+npx cypress run
+git add -p
+git commit -m "refactor: fix types"
 ```

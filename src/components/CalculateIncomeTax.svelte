@@ -1,9 +1,9 @@
 <script lang="ts">
   import { onMount } from 'svelte'
-  import situation from '@/situations/calculateIncomeTax.json'
   import type { Situation } from '@/models/Situation.ts'
+  import situation from '@/situations/calculateIncomeTax.json'
 
-  export let data: number
+  export let data: number | null = null
   const payload: string = JSON.stringify(situation)
 
   onMount(async () => {
