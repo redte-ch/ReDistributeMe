@@ -1,8 +1,9 @@
 <script lang="ts">
   import { onMount } from 'svelte'
   import situation from '@/situations/calculateIncomeTax.json'
+  import type { CalculateResult } from '@/models/CalculateResult'
 
-  export let data: object
+  export let data: number
   const payload: string = JSON.stringify(situation)
 
   onMount(async () => {
@@ -15,7 +16,8 @@
       }
     )
 
-    data = await response.json()
+    const result: CalculateResult = await response.json()
+    data = result.persons.Thomas.income_tax['2025-03']
   })
 </script>
 
@@ -27,7 +29,10 @@
       RedistributeMe
     </h1>
     <p class="px-4 py-5 sm:p-6">
-      Income tax: <span>1234</span>
+      Income tax:
+      <span>
+        {#if data}{data}{:else}calculating...{/if}
+      </span>
     </p>
   </section>
 </main>
