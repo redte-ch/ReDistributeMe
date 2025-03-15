@@ -12,14 +12,18 @@
     "isolatedModules": true,
     "moduleResolution": "bundler",
     "noEmit": true,
-    "paths": { "@/*": ["src/*"] },
+    "paths": {
+      "@/*": ["src/*"]
+    },
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "sourceMap": true,
     "strict": true,
     "strictNullChecks": true,
     "stripInternal": true,
-    "target": "es6"
+    "target": "es6",
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
   },
   "extends": "astro/tsconfigs/strict",
   "include": [".astro/types.d.ts", "**/*"],
