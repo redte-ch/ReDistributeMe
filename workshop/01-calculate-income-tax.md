@@ -183,7 +183,7 @@ git add -p
 git commit -m "test: make calculate income tax test pass"
 ```
 
-### Add client-side rendering to `index.astro
+### Add client-side rendering to `index.astro`
 
 ```astro
 ---
