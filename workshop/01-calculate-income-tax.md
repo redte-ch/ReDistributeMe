@@ -104,7 +104,7 @@ export default defineConfig({
 })
 ```
 
-Create a `calculate-income-tax.cy.ts`:
+Create a `calculate.cy.ts`:
 
 ```typescript
 it('Calculate income tax', () => {
