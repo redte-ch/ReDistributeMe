@@ -1,4 +1,4 @@
-# First Iteration
+# Calculate Income Tax
 
 ### Create a new project
 
