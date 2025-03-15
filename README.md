@@ -62,11 +62,12 @@ npm run test
 ## Roadmap
 
 - [x] Fix `disposable_income` formula in `openfisca-country-template`
-- [ ] Adapt core to changes in `openfisca-country-template`
+- [x] Adapt core to changes in `openfisca-country-template`
 - [x] Bootstrap this repository with a vanilla Astro app
 - [x] Add licence
 - [x] Add contributing guidelines
-- [ ] Implement the calculation of income tax
+- [x] Implement the calculation of income tax
+- [ ] Implement the calculation of disposable income
 
 ## Licence
 
