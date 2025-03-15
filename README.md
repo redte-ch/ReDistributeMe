@@ -15,6 +15,7 @@ redistributive impact influenced by both taxes and social benefits.
 ## Built With
 
 - [Astro](https://astro.build/)
+- [React](https://reactjs.org/)
 - [Svelte](https://svelte.dev/)
 - [OpenFisca](https://openfisca.org/)
 - [TypeScript](https://www.typescriptlang.org/)
@@ -67,7 +68,7 @@ npm run test
 - [x] Add licence
 - [x] Add contributing guidelines
 - [x] Implement the calculation of income tax
-- [ ] Implement the calculation of disposable income
+- [x] Implement the calculation of disposable income
 
 ## Licence
 
