@@ -59,3 +59,38 @@ npx prettier --write .
 git add -p
 git commit -m "feat: add calculate disposable income to index"
 ```
+
+### Add `calculateDisposableIncome.json`
+
+```json
+{
+  "persons": {
+    "Thomas": {
+      "salary": {
+        "2025-03": 4000
+      }
+    },
+    "Mauko": {
+      "salary": {
+        "2025-03": 3000
+      }
+    }
+  },
+  "households": {
+    "workshop": {
+      "adults": ["Thomas", "Mauko"],
+      "disposable_income": {
+        "2025-03": null
+      }
+    }
+  }
+}
+```
+
+Format and commit:
+
+```sh
+npx prettier --write .
+git add -p
+git commit -m "feat: add disposable income situation"
+```
