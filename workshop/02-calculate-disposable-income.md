@@ -12,7 +12,6 @@ Then format and commit:
 npx prettier --write .
 git add package-lock.json
 git add -p
-git add .
 git commit -m "chore: add React"
 ```
 
@@ -37,6 +36,26 @@ Format and commit:
 ```sh
 npx prettier --write .
 git add -p
-git add .
 git commit -m "test: add calculate disposable income test"
+```
+
+### Modify `index.astro`:
+
+```astro
+---
+import CalculateDisposableIncome from '@/components/CalculateDisposableIncome.tsx'
+import Layout from '@/layouts/Layout.astro'
+---
+
+<Layout>
+  <CalculateDisposableIncome client:idle />
+</Layout>
+```
+
+Format and commit:
+
+```sh
+npx prettier --write .
+git add -p
+git commit -m "feat: add calculate disposable income to index"
 ```
