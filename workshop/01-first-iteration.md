@@ -182,3 +182,38 @@ npx cypress run
 git add -p
 git commit -m "test: make calculate income tax test pass"
 ```
+
+### Call the OpenFisca API to calculate income tax
+
+Add `calculateIncomeTax.json`:
+
+```json
+{
+  "persons": {
+    "Thomas": {
+      "salary": {
+        "2025-03": 4000
+      },
+      "income_tax": {
+        "2025-03": null
+      }
+    }
+  }
+}
+```
+
+Modify `CalculateIncomeTax.svelte`:
+
+```svelte
+
+```
+
+Fix the test, format, and commit:
+
+```sh
+npx prettier --write .
+npx cypress run
+git add -p
+git add .
+git commit -m "feat: calculate income tax"
+```
