@@ -3,7 +3,7 @@
   import type { Situation } from '@/models/Situation.ts'
   import situation from '@/situations/calculateIncomeTax.json'
 
-  export let data: number | null = null
+  export let data: string = 'Calculating...'
   const payload: string = JSON.stringify(situation)
 
   onMount(async () => {
@@ -17,22 +17,13 @@
     )
 
     const result: Situation = await response.json()
-    data = result.persons.Thomas.income_tax['2025-03']
+    data = JSON.stringify(result, null, 2)
   })
 </script>
 
-<main class="flex h-screen items-center justify-center">
-  <section
-    class="divide-y divide-gray-200 overflow-hidden rounded-lg bg-white shadow-sm"
-  >
-    <h1 class="px-4 py-5 font-semibold text-gray-900 sm:px-6">
-      RedistributeMe
-    </h1>
-    <p class="px-4 py-5 sm:p-6">
-      Income tax:
-      <span>
-        {#if data}{data}{:else}calculating...{/if}
-      </span>
-    </p>
+<main>
+  <section>
+    <h1>Calculate Income Tax</h1>
+    <pre>{data}</pre>
   </section>
 </main>

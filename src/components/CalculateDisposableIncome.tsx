@@ -3,7 +3,7 @@ import type { Situation } from '@/models/Situation'
 import situation from '@/situations/calculateDisposableIncome.json'
 
 export default function () {
-  const [data, setData]: [string, any] = useState('loading...')
+  const [data, setData]: [string, any] = useState('Calculating...')
   const payload: string = JSON.stringify(situation)
 
   const fetchData = async () => {
@@ -25,12 +25,10 @@ export default function () {
   }, [])
 
   return (
-    <main className='flex h-screen items-center justify-center'>
-      <section className='divide-y divide-gray-200 overflow-hidden rounded-lg bg-white shadow-sm'>
-        <h1 className='px-4 py-5 font-semibold text-gray-900 sm:px-6'>
-          RedistributeMe
-        </h1>
-        <pre className='px-4 py-5 sm:p-6'>{data}</pre>
+    <main>
+      <section>
+        <h1>Calculate Disposable Income</h1>
+        <pre>{data}</pre>
       </section>
     </main>
   )
