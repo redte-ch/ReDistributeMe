@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte'
-  import { calculate } from "@/services/openfisca"
+  import { calculate } from '@/services/openfisca'
   import situation from '@/situations/calculateIncomeTax.json'
 
   const payload: string = JSON.stringify(situation)

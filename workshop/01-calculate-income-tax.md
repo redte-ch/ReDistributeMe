@@ -107,7 +107,7 @@ export const calculate = async (payload: string) => {
     'https://api.demo.openfisca.org/latest/calculate',
     {
       method: 'POST',
-      headers: {'Content-Type': 'application/json'},
+      headers: { 'Content-Type': 'application/json' },
       body: payload
     }
   )
@@ -121,7 +121,7 @@ Modify `CalculateIncomeTax.svelte`:
 ```svelte
 <script lang="ts">
   import { onMount } from 'svelte'
-  import { calculate } from "@/services/openfisca"
+  import { calculate } from '@/services/openfisca'
   import situation from '@/situations/calculateIncomeTax.json'
 
   const payload: string = JSON.stringify(situation)

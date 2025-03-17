@@ -22,7 +22,7 @@
     "strictNullChecks": true,
     "stripInternal": true,
     "target": "es6",
-    "jsx": "react-jsx",
+    "jsx": "preserve",
     "jsxImportSource": "react"
   },
   "extends": "astro/tsconfigs/strict",

@@ -3,7 +3,7 @@ export const calculate = async (payload: string) => {
     'https://api.demo.openfisca.org/latest/calculate',
     {
       method: 'POST',
-      headers: {'Content-Type': 'application/json'},
+      headers: { 'Content-Type': 'application/json' },
       body: payload
     }
   )
