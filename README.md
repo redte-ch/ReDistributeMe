@@ -15,11 +15,13 @@ redistributive impact influenced by both taxes and social benefits.
 ## Built With
 
 - [Astro](https://astro.build/)
+- [Cypress](https://www.cypress.io/)
+- [OpenFisca](https://openfisca.org/)
 - [React](https://reactjs.org/)
 - [Svelte](https://svelte.dev/)
-- [OpenFisca](https://openfisca.org/)
-- [TypeScript](https://www.typescriptlang.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Vue.js](https://vuejs.org/)
 
 ## Getting Started
 
