@@ -1,23 +1,14 @@
 <script lang="ts">
   import { onMount } from 'svelte'
-  import type { Situation } from '@/models/Situation.ts'
+  import { calculate } from "@/services/openfisca"
   import situation from '@/situations/calculateIncomeTax.json'
 
-  export let data: string = 'Calculating...'
   const payload: string = JSON.stringify(situation)
 
-  onMount(async () => {
-    const response = await fetch(
-      'https://api.demo.openfisca.org/latest/calculate',
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: payload
-      }
-    )
+  export let data: string = 'Calculating...'
 
-    const result: Situation = await response.json()
-    data = JSON.stringify(result, null, 2)
+  onMount(async () => {
+    data = JSON.stringify(await calculate(payload), null, 2)
   })
 </script>
 

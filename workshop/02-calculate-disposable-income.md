@@ -102,29 +102,17 @@ git commit -m "feat: add disposable income situation"
 
 ```tsx
 import { useState, useEffect } from 'react'
-import type { Situation } from '@/models/Situation'
+import { calculate } from '@/services/openfisca'
 import situation from '@/situations/calculateDisposableIncome.json'
 
 export default function () {
   const [data, setData]: [string, any] = useState('Calculating...')
   const payload: string = JSON.stringify(situation)
 
-  const fetchData = async () => {
-    const response = await fetch(
-      'https://api.demo.openfisca.org/latest/calculate',
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: payload
-      }
-    )
-
-    const result: Situation = await response.json()
-    setData(JSON.stringify(result, null, 2))
-  }
-
   useEffect(() => {
-    fetchData().catch(null)
+    calculate(payload).then((result) => {
+      setData(JSON.stringify(result, null, 2))
+    })
   }, [])
 
   return (
@@ -138,49 +126,12 @@ export default function () {
 }
 ```
 
-Format and commit:
+Format, test, and commit:
 
 ```sh
 npx prettier --write .
+npm cypress run
 git add -p
 git add .
 git commit -m "feat: add calculate disposable income component"
-```
-
-### Fix types
-
-Modify `Situation.ts`:
-
-```typescript
-type Person = string
-type Household = string
-type Role = string
-type Variable = string
-type Date = string
-type Value = number | null
-
-export type Situation = {
-  persons: {
-    [key: Person]: {
-      [key: Variable]: {
-        [key: Date]: Value
-      }
-    }
-  }
-  households: {
-    [key: Household]: {
-      [key: Role | Variable]: Person[] | { [key: Date]: Value }
-    }
-  }
-}
-```
-
-Format, check types, test, and commit:
-
-```sh
-npx prettier --write .
-npx astro check
-npx cypress run
-git add -p
-git commit -m "refactor: fix types"
 ```
