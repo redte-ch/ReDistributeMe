@@ -1,5 +1,32 @@
 # Calculate Income Tax, Part 2
 
+### Objective
+
+Recalculate a variable for an individual.
+
+### Try this out in Swagger
+
+```json
+{
+  "persons": {
+    "Thomas": {
+      "salary": {
+        "2025-03": 4000
+      },
+      "pension": {
+        "2025-03": 1000
+      },
+      "capital_returns": {
+        "2025-03": 1000
+      },
+      "income_tax": {
+        "2025-03": null
+      }
+    }
+  }
+}
+```
+
 ### Add an input for the situation
 
 Modify `CalculateIncomeTax.svelte`:
@@ -158,3 +185,7 @@ npx cypress run
 git add -p
 git commit -m "feat: recalculate income tax"
 ```
+
+### Questions & technical coaching
+
+Any questions? Do you need help?

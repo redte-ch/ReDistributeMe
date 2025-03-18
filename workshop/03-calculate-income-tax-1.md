@@ -1,5 +1,26 @@
 # Calculate Income Tax, Part 1
 
+### Objective
+
+Calculate a variable for an individual.
+
+### Try this out in Swagger
+
+```json
+{
+  "persons": {
+    "Thomas": {
+      "salary": {
+        "2025-03": 4000
+      },
+      "income_tax": {
+        "2025-03": null
+      }
+    }
+  }
+}
+```
+
 ### Add a test for the calculation of income tax
 
 Create a `calculate.cy.ts`:
@@ -197,3 +218,7 @@ npx prettier --write .
 git add -p
 git commit -m "style: add global styles"
 ```
+
+### Questions & technical coaching
+
+Any questions? Do you need help?

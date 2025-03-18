@@ -43,3 +43,7 @@ npx prettier --write .
 git add -p
 git commit -m "test: add expand disposable income test"
 ```
+
+### Questions & technical coaching
+
+Any questions? Do you need help?

@@ -1,5 +1,9 @@
 # App Bootstrap
 
+### Objective
+
+Bootstrap a new Astro app with Svelte, Tailwind, and Prettier.
+
 ### Create a new project
 
 ```sh
@@ -103,3 +107,7 @@ export default defineConfig({
   }
 })
 ```
+
+### Questions & technical coaching
+
+Any questions? Do you need help?

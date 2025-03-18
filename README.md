@@ -28,6 +28,7 @@ redistributive impact influenced by both taxes and social benefits.
 ### Prerequisites
 
 - [Node.js](https://nodejs.org/)
+- [Python](https://www.python.org/)
 
 ### Installation
 

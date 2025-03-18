@@ -1,5 +1,36 @@
 # Calculate Disposable Income
 
+### Objective
+
+Calculate a variable for a group of individuals.
+
+### Try this out in Swagger
+
+```json
+{
+  "persons": {
+    "Thomas": {
+      "salary": {
+        "2025-03": 4000
+      }
+    },
+    "Mauko": {
+      "salary": {
+        "2025-03": 3000
+      }
+    }
+  },
+  "households": {
+    "workshop": {
+      "adults": ["Thomas", "Mauko"],
+      "disposable_income": {
+        "2025-03": null
+      }
+    }
+  }
+}
+```
+
 ### Add React
 
 ```sh
@@ -135,3 +166,7 @@ git add -p
 git add .
 git commit -m "feat: add calculate disposable income component"
 ```
+
+### Questions & technical coaching
+
+Any questions? Do you need help?
