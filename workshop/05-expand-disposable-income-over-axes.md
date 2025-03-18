@@ -93,6 +93,45 @@ git add .
 git commit -m "feat: add expand disposable income scenario"
 ```
 
+### Add new component
+
+Add `ExpandDisposableIncome.vue`:
+
+```vue
+<script setup lang="ts"></script>
+
+<template>
+  <main>
+    <section>
+      <h1>Expand Disposable Income Over Axes</h1>
+      <pre>1234</pre>
+    </section>
+  </main>
+</template>
+```
+
+Modify `index.astro`:
+
+```astro
+---
+import ExpandDisposableIncome from '@/components/ExpandDisposableIncome.vue'
+import Layout from '@/layouts/Layout.astro'
+---
+
+<Layout>
+  <ExpandDisposableIncome client:idle />
+</Layout>
+```
+
+Format and commit:
+
+```sh
+npx prettier --write .
+git add -p
+git add .
+git commit -m "feat: add expand disposable income component"
+```
+
 ### Questions & technical coaching
 
 Any questions? Do you need help?
