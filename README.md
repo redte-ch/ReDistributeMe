@@ -72,7 +72,7 @@ npm run test
 - [x] Add contributing guidelines
 - [x] Implement the calculation of income tax
 - [x] Implement the calculation of disposable income
-- [ ] Calculate disposable income based on different levels of salary
+- [x] Calculate disposable income based on different levels of salary
 - [ ] Plot the calculation of disposable income for different levels of salary
 
 ## Licence
