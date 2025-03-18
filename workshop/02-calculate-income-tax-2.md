@@ -11,22 +11,22 @@ Modify `CalculateIncomeTax.svelte`:
 Make the payload reactive:
 
 ```diff
-+  let payload: string = JSON.stringify(situation)
 -  const payload: string = JSON.stringify(situation)
++  let payload: string = JSON.stringify(situation)
 ```
 
 Add some formating to the content of the payload:
 
 ```diff
-+  let payload: string = JSON.stringify(situation, null, 2)
 -  let payload: string = JSON.stringify(situation)
++  let payload: string = JSON.stringify(situation, null, 2)
 ```
 
 Add some space to the textarea:
 
 ```diff
-+    <textarea bind:value={payload} rows="15" />
 -    <textarea bind:value={payload} />
++    <textarea bind:value={payload} rows="15" />
 ```
 
 Modify `global.css` to style a bit the textarea:
@@ -70,8 +70,8 @@ Modify `global.css` to style a bit the button:
 
 ```diff
 textarea,
-+pre,
 -pre {
++pre,
 +p {
   @apply px-4 py-5 sm:p-6;
 }
@@ -91,4 +91,70 @@ Format and commit:
 npx prettier --write .
 git add -p
 git commit -m "feat: add button to recalculate income tax"
+```
+
+### Implement the `recalculate` function
+
+Modify `CalculateIncomeTax.svelte`:
+
+```diff
++  const recalculate = async () => {
++    data = JSON.stringify(await calculate(payload), null, 2)
++  }
+```
+
+And modify the `onMount` function to use the `recalculate` function:
+
+```diff
+-  onMount(async () => {
+-    data = JSON.stringify(await calculate(payload), null, 2)
+-  })
++  onMount(async () => {await recalculate()})
+```
+
+Change the `salary` and click recalculate:
+
+```diff
+{
+  "persons": {
+    "Thomas": {
+      "salary": {
+-        "2025-03": 4000
++        "2025-03": 5000
+      },
+      "income_tax": {
+        "2025-03": null
+      }
+    }
+  }
+}
+```
+
+Add `capital_returns` and click recalculate:
+
+```diff
+{
+  "persons": {
+    "Thomas": {
+      "salary": {
+        "2025-03": 5000
+      },
++      "capital_returns": {
++        "2025-03": 1000
++      },
+      "income_tax": {
+        "2025-03": null
+      }
+    }
+  }
+}
+```
+
+Format, test, and commit:
+
+```sh
+npx prettier --write .
+npx cypress run
+git add -p
+git commit -m "feat: recalculate income tax"
 ```

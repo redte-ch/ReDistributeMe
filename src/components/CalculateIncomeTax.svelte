@@ -3,11 +3,15 @@
   import { calculate } from '@/services/openfisca'
   import situation from '@/situations/calculateIncomeTax.json'
 
+  const recalculate = async () => {
+    data = JSON.stringify(await calculate(payload), null, 2)
+  }
+
   let payload: string = JSON.stringify(situation, null, 2)
   let data: string = 'Calculating...'
 
   onMount(async () => {
-    data = JSON.stringify(await calculate(payload), null, 2)
+    await recalculate()
   })
 </script>
 

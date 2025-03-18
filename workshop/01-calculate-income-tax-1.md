@@ -94,8 +94,8 @@ Fix the test:
 it('Calculate income tax', () => {
   const page = cy.visit('/')
   page.get('h1').should('have.text', 'Calculate Income Tax')
-+  page.get('pre').should('contain.text', '600')
 -  page.get('pre').should('contain.text', '1234')
++  page.get('pre').should('contain.text', '600')
 })
 ```
 
@@ -145,8 +145,8 @@ For our component to be rendered client-side, we need to add to `index.astro`:
 
 ```diff
 <Layout>
-+  <CalculateIncomeTax client:idle />
 -  <CalculateIncomeTax />
++  <CalculateIncomeTax client:idle />
 </Layout>
 ```
 
