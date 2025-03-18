@@ -1,4 +1,4 @@
-# Calculate Income Tax
+# Calculate Income Tax, Part 1
 
 ### Add a test for the calculation of income tax
 
@@ -126,7 +126,7 @@ Modify `CalculateIncomeTax.svelte`:
 
   const payload: string = JSON.stringify(situation)
 
-  export let data: string = 'Calculating...'
+  let data: string = 'Calculating...'
 
   onMount(async () => {
     data = JSON.stringify(await calculate(payload), null, 2)

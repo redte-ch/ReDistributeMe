@@ -12,6 +12,11 @@ h1 {
   @apply px-4 py-5 font-semibold text-gray-900 sm:px-6;
 }
 
+textarea {
+  margin: 0.5em;
+}
+
+textarea,
 pre {
   @apply px-4 py-5 sm:p-6;
 }
