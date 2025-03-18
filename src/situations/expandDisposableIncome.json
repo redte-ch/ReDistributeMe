@@ -1,0 +1,25 @@
+{
+  "persons": {
+    "Thomas": {},
+    "Mauko": {}
+  },
+  "households": {
+    "workshop": {
+      "adults": ["Thomas", "Mauko"],
+      "disposable_income": {
+        "2025-03": null
+      }
+    }
+  },
+  "axes": [
+    [
+      {
+        "count": 11,
+        "name": "salary",
+        "min": 0,
+        "max": 10000,
+        "period": "2025-03"
+      }
+    ]
+  ]
+}

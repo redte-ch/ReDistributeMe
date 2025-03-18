@@ -1,5 +1,15 @@
 # Expand Disposable Income Over Axes
 
+### Clone, install, and run OpenFisca-Core
+
+```sh
+git clone git@github.com:openfisca/openfisca-core.git
+cd openfisca-core
+git checkout feat/add-axes-to-api
+make install
+make api
+```
+
 ### Add Vue.js
 
 ```sh
@@ -42,6 +52,45 @@ Format and commit:
 npx prettier --write .
 git add -p
 git commit -m "test: add expand disposable income test"
+```
+
+### Add `expandDisposableIncome.json`
+
+```json
+{
+  "persons": {
+    "Thomas": {},
+    "Mauko": {}
+  },
+  "households": {
+    "workshop": {
+      "adults": ["Thomas", "Mauko"],
+      "disposable_income": {
+        "2025-03": null
+      }
+    }
+  },
+  "axes": [
+    [
+      {
+        "count": 11,
+        "name": "salary",
+        "min": 0,
+        "max": 10000,
+        "period": "2025-03"
+      }
+    ]
+  ]
+}
+```
+
+Format and commit:
+
+```sh
+npx prettier --write .
+git add -p
+git add .
+git commit -m "feat: add expand disposable income scenario"
 ```
 
 ### Questions & technical coaching
