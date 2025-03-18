@@ -16,5 +16,6 @@
     <h1>Calculate Income Tax</h1>
     <textarea bind:value={payload} rows="15" />
     <pre>{data}</pre>
+    <p><button on:click={recalculate}>Recalculate</button></p>
   </section>
 </main>

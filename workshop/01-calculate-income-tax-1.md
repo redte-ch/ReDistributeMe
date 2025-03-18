@@ -178,7 +178,7 @@ Then add the following to `global.css`:
 +}
 +
 +section {
-+  @apply divide-y divide-gray-200 overflow-hidden rounded-lg bg-white shadow-sm;
++  @apply divide-y divide-gray-100 overflow-hidden rounded-lg bg-gray-50 shadow-sm;
 +}
 +
 +h1 {

@@ -5,7 +5,7 @@ main {
 }
 
 section {
-  @apply divide-y divide-gray-200 overflow-hidden rounded-lg bg-white shadow-sm;
+  @apply divide-y divide-gray-100 overflow-hidden rounded-lg bg-gray-50 shadow-sm;
 }
 
 h1 {
@@ -13,10 +13,20 @@ h1 {
 }
 
 textarea {
-  margin: 0.5em;
+  @apply bg-white;
+  margin: 1em;
 }
 
 textarea,
-pre {
+pre,
+p {
   @apply px-4 py-5 sm:p-6;
+}
+
+p {
+  @apply text-center;
+}
+
+button {
+  @apply rounded bg-blue-500 px-4 py-2 text-center font-bold text-white hover:bg-blue-600;
 }

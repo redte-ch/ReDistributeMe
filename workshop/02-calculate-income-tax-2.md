@@ -33,7 +33,8 @@ Modify `global.css` to style a bit the textarea:
 
 ```diff
 +textarea {
-+  margin: 0.5em;
++  @apply bg-white;
++  margin: 1em;
 +}
 +
 +textarea,
@@ -48,4 +49,46 @@ Format and commit:
 npx prettier --write .
 git add -p
 git commit -m "feat: add a textarea to calculate income tax component"
+```
+
+### Add a button to recalculate based on new input
+
+Modify `CalculateIncomeTax.svelte`:
+
+```diff
+    <pre>{data}</pre>
++    <p><button on:click={recalculate}>Recalculate</button></p>
+  </section>
+```
+
+Take a look at these links to copy some styles:
+
+- https://tailwindcss.com/docs/text-align
+- https://v1.tailwindcss.com/components/buttons
+
+Modify `global.css` to style a bit the button:
+
+```diff
+textarea,
++pre,
+-pre {
++p {
+  @apply px-4 py-5 sm:p-6;
+}
+
++p {
++  @apply text-center;
++}
++
++button {
++  @apply rounded bg-blue-500 px-4 py-2 text-center font-bold text-white hover:bg-blue-600;
++}
+```
+
+Format and commit:
+
+```sh
+npx prettier --write .
+git add -p
+git commit -m "feat: add button to recalculate income tax"
 ```
