@@ -20,10 +20,10 @@ We will show through examples the fundamental concepts of OpenFisca.
   - Participating in the mob programming
   - As an observer
 - If you'll be developing in your environment, have it ready:
-    - For the first part, you can either:
-      - Start from scratch with us using Node
-      - Or with anything to build a front and to do POST requests
-    - For the second, you'll also need Python to run OpenFisca locally
+  - For the first part, you can either:
+    - Start from scratch with us using Node
+    - Or with anything to build a front and to do POST requests
+  - For the second, you'll also need Python to run OpenFisca locally
 - In case you can't stay for the whole workshop, or if you prefer to participate
   as an observer, we've prepared a companion webapp that you can download:
   https://github.com/redte-ch/ReDistributeMe
@@ -66,9 +66,10 @@ Please introduce yourself:
 The workshop revolves around the ideas of a `situation` and `calculation`.
 
 A `situation` is composed of:
-  - Something we want to calculate, called a `Variable`
-  - Someone for whom we want to calculate it, called an `Entity`
-  - A moment in time for the calculation, called a `Period`
+
+- Something we want to calculate, called a `Variable`
+- Someone for whom we want to calculate it, called an `Entity`
+- A moment in time for the calculation, called a `Period`
 
 ### Swagger example
 
@@ -78,10 +79,7 @@ We can see these concepts within the Swagger situation in `/calculate`:
 {
   "households": {
     "_": {
-      "adults": [
-        "Alicia",
-        "Javier"
-      ],
+      "adults": ["Alicia", "Javier"],
       "disposable_income": {
         "2017-01": null
       },
@@ -120,10 +118,7 @@ We can try this out and get our `calculation` back:
 {
   "households": {
     "_": {
-      "adults": [
-        "Alicia",
-        "Javier"
-      ],
+      "adults": ["Alicia", "Javier"],
       "disposable_income": {
         "2017-01": 6578.3335
       },
